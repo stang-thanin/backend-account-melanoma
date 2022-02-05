@@ -1,0 +1,85 @@
+definitions:
+  types.HealthCheckRequest:
+    properties:
+      word:
+        example: hello
+        type: string
+    type: object
+  types.HealthCheckResponse:
+    properties:
+      error:
+        example: true
+        type: boolean
+      message:
+        example: Server is currently fine.
+        type: string
+    type: object
+info:
+  contact:
+    email: your@mail.com
+    name: API Support
+  description: This is an auto-generated API Docs.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Skin Screener Backend Application
+  version: "1.0"
+paths:
+  /health:
+    get:
+      description: Show Skin Screener service health
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/types.HealthCheckResponse'
+      summary: Show Skin Screener service health
+      tags:
+      - health
+    post:
+      description: Show Skin Screener service health  and echo word body
+      parameters:
+      - description: word for echo
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/types.HealthCheckRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/types.HealthCheckResponse'
+      summary: Show Skin Screener service health and echo word body
+      tags:
+      - health
+  /health/{word}:
+    get:
+      description: Show Skin Screener service health  and echo word param
+      parameters:
+      - description: word for echo
+        in: path
+        name: word
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/types.HealthCheckResponse'
+      summary: Show Skin Screener service health and echo word param
+      tags:
+      - health
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
