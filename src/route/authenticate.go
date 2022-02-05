@@ -19,6 +19,5 @@ func AuthenticateRoute(app *fiber.App) {
 	v1.Get("/users/:username/reset", controller.GetReset) // /api/v1/users/:username/reset
 	v1.Post("/password/reset", controller.ResetPassword)  // /api/v1/password/reset?resetToken={resetToken}
 	v1.Get("/users/me", controller.Me)                    // /api/v1/users/me
-	// v1.Get("/users")                                   // /api/v1/users
-	// v1.Get("//users/{username}")                       // /api/v1/users/{username}
+
 }

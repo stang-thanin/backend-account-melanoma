@@ -36,8 +36,6 @@ func main() {
 	}))
 
 	route.RegisterSwaggerRoute(app)
-	route.RegisterHealthRoute(app)
-
 	route.AuthenticateRoute(app)
 
 	app.Get("/", func(c *fiber.Ctx) error {
